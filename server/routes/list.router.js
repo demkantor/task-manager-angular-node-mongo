@@ -4,6 +4,25 @@ const router = express.Router();
 const { List, Task } = require('../db/models');
 
 
+// set user auth middleware //
+// check whether the request has a valid JWT access token
+let authenticate = (req, res, next) => {
+    let token = req.header('x-access-token');
+    // verify the JWT
+    jwt.verify(token, User.getJWTSecret(), (err, decoded) => {
+        if (err) {
+            // there was an error
+            // jwt is invalid - * DO NOT AUTHENTICATE *
+            res.status(401).send(err);
+        } else {
+            // jwt is valid
+            req.user_id = decoded._id;
+            next();
+        }
+    });
+}
+
+
 // get all lists from database
 router.get('/', (req, res) =>{
     console.log('in GET all lists');
@@ -12,7 +31,6 @@ router.get('/', (req, res) =>{
         res.send(lists);
     })
 });
-
 
 // add a new list to database
 router.post('/', (req, res) => {
@@ -27,7 +45,6 @@ router.post('/', (req, res) => {
     });
 });
 
-
 // update list with new values
 router.patch('/:id', (req, res)=>{
     console.log('in UPDATE list', req.body, req.params.id);
@@ -37,7 +54,6 @@ router.patch('/:id', (req, res)=>{
         res.sendStatus(200);
     });
 });
-
 
 // delete a list by id
 router.delete('/:id', (req, res)=>{
@@ -95,7 +111,6 @@ router.patch('/:listId/tasks/:taskId', (req, res)=>{
         res.send({message: 'Updated Successfully!'});
     });
 });
-
 
 // delete task to a specific list by id
 router.delete('/:listId/tasks/:taskId', (req, res)=>{

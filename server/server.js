@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const {mongoose} = require('./db/mongoose');
+const { mongoose } = require('./db/mongoose');
 const bodyParser = require('body-parser');
 
 // set middleware
@@ -18,9 +18,12 @@ app.use(function (req, res, next) {
     next();
 });
 
+
 //  routes 
 const listRouter = require('./routes/list.router');
+const userRouter = require('./routes/user.router');
 app.use('/lists', listRouter);
+app.use('/users', userRouter);
 
 
 // set port and listen...

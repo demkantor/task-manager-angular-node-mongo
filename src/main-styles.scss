@@ -11,7 +11,7 @@ $family-sans-serif: "Nunito", sans-serif;
 $primary: $green;
 $link: $turquoise;
 
-$control-border-width: 2px;
+$control-border-width: .1em;
 $input-border-color: transparent;
 $input-shadow: none;
 
@@ -42,16 +42,15 @@ html, body {
 
 .title {
     font-family: 'Lato';
-    font-size: 24px;
+    font-size: 1.8em;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: .1em;
 }
 
 .white-box {
-    padding: 35px;
+    padding: 2em;
     background: #ffffff;
-    border-radius: 5px;
-
-    width: 350px;
-    max-width: 350px;
+    border-radius: .4em;
+    width: 22em;
+    max-width: 22em;
 }
