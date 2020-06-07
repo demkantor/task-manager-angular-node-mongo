@@ -15,6 +15,7 @@
     padding: 3.5em;
     border-top-left-radius: .5em;
     border-bottom-left-radius: .5em;
+    overflow-y: auto;
 }
 
 .task-list-container {
@@ -25,7 +26,7 @@
     padding: 3.5em;
     border-top-right-radius: .5em;
     border-bottom-right-radius: .5em;
-
+    overflow-y: auto;
 
     .top-bar {
         margin-bottom: 1.3em;
@@ -90,7 +91,7 @@
         }
     }
 
-    &.completed .task-text {
+    &.completed  {
         text-decoration: line-through;
         opacity: 0.8;
     }
@@ -110,15 +111,58 @@
 
 .circle-add-button {
     position: absolute;
-    bottom: 35px;
-    right: 35px;
+    bottom: 2em;
+    right: 2em;
     height: 50px;
     width: 50px;
     border-radius: 50%;
 }
 
 .empty-state-text {
-    font-size: 20px;
+    font-size: 1.5em;
     color: #777;
     text-align: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .task-manager-container {
+        max-height: 80vh;
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+    
+    .sidebar {
+        width: 7em;
+        padding: .5em;
+    }
+    
+    .task-list-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 3.5em;
+        border-top-right-radius: .5em;
+        border-bottom-right-radius: .5em;
+    
+        .top-bar {
+            margin-bottom: 1.3em;
+            display: flex;
+            .title {
+                flex-grow: 1;
+                margin: 0;
+            }
+        }
+        .button {
+            margin: 0;
+        }
+    }
+
+    .circle-add-button {
+        position: fixed;
+        bottom: 6em;
+    }
+
+
 }

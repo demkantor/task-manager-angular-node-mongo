@@ -11,7 +11,7 @@ $family-sans-serif: "Nunito", sans-serif;
 $primary: $green;
 $link: $turquoise;
 
-$control-border-width: 2px;
+$control-border-width: .1em;
 $input-border-color: transparent;
 $input-shadow: none;
 
@@ -32,26 +32,25 @@ html, body {
 }
 
 .modal-box {
-    min-height: 200px;
+    min-height: 12em;
     width: 100%;
-    max-width: 580px;
-    background: #ffffff;
-    border-radius: 5px;
-    padding: 35px;
+    max-width: 30em;
+    background-color:  white;
+    border-radius: .3em;
+    padding: 2em;
 }
 
 .title {
     font-family: 'Lato';
-    font-size: 24px;
+    font-size: 1.8em;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: .1em;
 }
 
 .white-box {
-    padding: 35px;
+    padding: 2em;
     background: #ffffff;
-    border-radius: 5px;
-
-    width: 350px;
-    max-width: 350px;
+    border-radius: .4em;
+    width: 22em;
+    max-width: 22em;
 }
